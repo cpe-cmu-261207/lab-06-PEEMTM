@@ -26,7 +26,7 @@ const Select = () => {
             <span>To date</span>
             <input type='date' onChange={e => setEnd(e.target.value)}></input>
             <br />
-            <button className='backgrond-color-green' onClick={() => btn_press(start,end)}>Get data</button>
+            <button onClick={() => btn_press(start,end)}>Get data</button>
         </div>
     )
 }
