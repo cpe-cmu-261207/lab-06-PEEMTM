@@ -16,8 +16,8 @@ const Current = () => {
         try {
             const resp =
                 await axios.get(`https://api.coindesk.com/v1/bpi/currentprice/thb.json`)
-                setPrice(resp.data)
-                setLoading(false)
+            setPrice(resp.data)
+            setLoading(false)
         }
         catch (err) {
             setLoading(false)
@@ -33,6 +33,7 @@ const Current = () => {
     const render = () => {
         if (loading)
             return (
+                
                 <div className='text-center space-y-3'>
                     <p className='text-2xl font-semibold'>Current price</p>
                     <p className='text-2xl'>Loading ...</p>
@@ -47,7 +48,6 @@ const Current = () => {
                 </div>
             )
     }
-
     return (
         <div>
             {render()}
