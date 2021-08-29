@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+// API type from web
 type fetchType = {
     time: { updated: string, updatedISO: string, updateduk: string }
     disclaimer: string
@@ -14,8 +15,7 @@ const Current = () => {
 
     const fetchApi = async () => {
         try {
-            const resp =
-                await axios.get(`https://api.coindesk.com/v1/bpi/currentprice/thb.json`)
+            const resp = await axios.get(`https://api.coindesk.com/v1/bpi/currentprice/thb.json`)
             setPrice(resp.data)
             setLoading(false)
         }
@@ -24,16 +24,16 @@ const Current = () => {
             setError(true)
         }
     }
-
+    // 1st login active
     useEffect(() => {
         setLoading(true)
         fetchApi()
     }, [])
 
+    // no refresh render
     const render = () => {
         if (loading)
             return (
-                
                 <div className='text-center space-y-3'>
                     <p className='text-2xl font-semibold'>Current price</p>
                     <p className='text-2xl'>Loading ...</p>
@@ -48,12 +48,12 @@ const Current = () => {
                 </div>
             )
     }
+    
     return (
         <div>
             {render()}
         </div>
     )
-
 }
 
 export default Current
